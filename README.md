@@ -8,7 +8,6 @@
 [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/weathericons)](https://www.rpackages.io/package/weathericons)
 [![Build Status](https://travis-ci.org/trafficonese/weathericons.svg?branch=master)](https://travis-ci.org/trafficonese/weathericons)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![codecov](https://codecov.io/gh/trafficonese/weathericons/branch/master/graph/badge.svg)](https://codecov.io/gh/trafficonese/weathericons)
 <!-- badges: end -->
 
 The package adds support for the [weather-icons](https://erikflowers.github.io/weather-icons/) library.
