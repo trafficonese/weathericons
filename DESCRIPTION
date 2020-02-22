@@ -1,0 +1,21 @@
+Package: weathericons
+Title: Create Weather Icons
+Version: 0.0.1
+Authors@R: 
+    person(given = "Sebastian",
+           family = "Gatscha",
+           role = c("aut", "cre"),
+           email = "sebastian_gatscha@gmx.at")
+Description: Adds support for Weather Icons, which is a font and CSS library with 
+    weather themed icons, ready to be dropped right into Bootstrap, or any project
+    that needs high quality weather, maritime, and meteorological based icons!
+License: MIT + file LICENSE
+Depends: R (>= 3.1.0)
+Imports: 
+  utils,
+  htmltools
+URL: https://erikflowers.github.io/weather-icons/
+BugReports: https://github.com/erikflowers/weather-icons
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2

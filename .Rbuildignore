@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^weathericons\.Rproj$
+^/tools$
+^data-raw$
+^LICENSE\.md$
