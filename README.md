@@ -1,5 +1,10 @@
 # weathericons
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/trafficonese/weathericons/master/inst/img/icons.PNG" align="right" width="150"/>
+</p>
+
+
 <!-- badges: start -->
 [![](https://www.r-pkg.org/badges/version/weathericons)](https://www.r-pkg.org/pkg/weathericons)
 [![cran checks](https://cranchecks.info/badges/worst/weathericons)](https://cran.r-project.org/web/checks/check_results_weathericons.html)
@@ -15,6 +20,7 @@ The package adds support for the [weather-icons](https://erikflowers.github.io/w
 
 ## Installation
 
+## NOT YET!!
 You can install the released version of weathericons from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
