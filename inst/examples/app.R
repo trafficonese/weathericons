@@ -18,12 +18,13 @@ ui <- fluidPage(
   })')),
   h4("Click on an icon to get the name"),
   iconList,
+  hr(),
   verbatimTextOutput("title")
 )
 
 ## Server #########################
 server <- function(input, output, session) {
-  output$title <- renderPrint({
+  output$title <- renderText({
     req(input$icontitle)
     paste("Icon Name:", input$icontitle)
   })
