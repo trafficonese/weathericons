@@ -8,6 +8,7 @@
 [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/weathericons)](https://www.rpackages.io/package/weathericons)
 [![Build Status](https://travis-ci.org/trafficonese/weathericons.svg?branch=master)](https://travis-ci.org/trafficonese/weathericons)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![codecov](https://codecov.io/gh/trafficonese/weathericons/branch/master/graph/badge.svg)](https://codecov.io/gh/trafficonese/weathericons)
 <!-- badges: end -->
 
 The package adds support for the [weather-icons](https://erikflowers.github.io/weather-icons/) library.
@@ -48,15 +49,20 @@ weathericon("wi wi-wind", towards = 40)
 weathericon("wi wi-wind", from = 40)
 ```
 
-To see a list of all icons, please run the following shiny-app with:
+List all icons:
 
 ``` r
 shiny::runApp(system.file("examples/app.R", package = "weathericons"), display.mode = "showcase")
 ```
 
-To see how to customize icons with CSS, please run/read the following shiny-app with:
+Customize icons example with CSS:
 
 ``` r
 shiny::runApp(system.file("examples/app_classes.R", package = "weathericons"), display.mode = "showcase")
 ```
 
+Leaflet popups and labels with weathericons:
+
+``` r
+shiny::runApp(system.file("examples/leaflet_popup.R", package = "weathericons"), display.mode = "showcase")
+```

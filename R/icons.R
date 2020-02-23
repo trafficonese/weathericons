@@ -1,4 +1,6 @@
 #' weathericon
+#' @description Create a weathericon for use within a page. Icons can appear on
+#' their own, inside of a button, or as an icon for a tabPanel() within a navbarPage().
 #' @importFrom htmltools HTML tags singleton htmlDependencies htmlDependency
 #'   browsable htmlDependencies<-
 #' @importFrom utils globalVariables
@@ -12,21 +14,34 @@
 #' @param from The `from`-direction for wind icons can be specified either by
 #'   degrees or by an orientation. See the details.
 #' @param className Define an additional classname for the icon tag.
+#' @param ... Additional arguments that are passed to the attributes
+#'   of the i-tag. Style arguments must be passed as a named list.
 #' @details
 #' The arguments \code{towards} and \code{from} can either be an integer value
 #' between 0-360 or a character giving the direction. The possible items are
 #' stored in the dataset \code{quadrants}.
-#'
+#' @return A weather-icon element
 #' @export
+#' @seealso \href{https://erikflowers.github.io/weather-icons/}{Weather Icons}
 #' @examples \dontrun{
 #'
 #' ## To see a full List of icons please run this shiny-app
-#' shiny::runApp(system.file("examples/app.R", package = "weathericons"))
+#' shiny::runApp(system.file("examples/app.R", package = "weathericons"),
+#'              display.mode="showcase")
 #'
 #' ## To see how to use classes with icons see the following shiny-app
-#' shiny::runApp(system.file("examples/app_classes.R", package = "weathericons"))
+#' shiny::runApp(system.file("examples/app_classes.R", package = "weathericons"),
+#'               display.mode="showcase")
 #'
-#' weathericon("wi wi-forecast-io-fog")
+#' ## To see how to use JS functions and inline styling, please run this shiny-app
+#' shiny::runApp(system.file("examples/js_functions.R", package = "weathericons"),
+#'               display.mode="showcase")
+#'
+#' ## To see how to use weathericons for leaflet popups and labels, see
+#' shiny::runApp(system.file("examples/leaflet_popup.R", package = "weathericons"),
+#'               display.mode="showcase")
+#'
+#'
 #' weathericon("wi-forecast-io-fog")
 #' weathericon("wi-wu-chanceflurries")
 #' weathericon("wi-moon-waxing-crescent-3")
@@ -45,14 +60,13 @@
 #' weathericon("wi-wind", from = "sw")
 #' weathericon("wi wi-wind", towards = 40)
 #' weathericon("wi wi-wind", from = 40)
-#'
 #' }
-#' @seealso \href{https://erikflowers.github.io/weather-icons/}{Weather Icons}
 weathericon <- function(name = NULL, wind = TRUE,
                         flip = NULL, rotate = NULL,
                         towards = NULL,
                         from = NULL,
-                        className = NULL) {
+                        className = NULL,
+                        ...) {
 
   ## If name is NULL, show some Sun ###############
   if (is.null(name)) name = "wi wi-day-sunny"
@@ -63,8 +77,8 @@ weathericon <- function(name = NULL, wind = TRUE,
   ## Icon Flipping #################
   if (!is.null(flip)) {
     flip <- match.arg(flip, c("horizontal", "vertical"))
-    if (flip == "horizontal") name <- paste(name, " wi-flip-horizontal")
-    if (flip == "vertical") name <- paste(name, " wi-flip-vertical")
+    if (flip == "horizontal") name <- paste0(name, " wi-flip-horizontal")
+    if (flip == "vertical") name <- paste0(name, " wi-flip-vertical")
   }
 
   ## Icon Rotating #################
@@ -97,18 +111,34 @@ weathericon <- function(name = NULL, wind = TRUE,
   if (!is.null(className)) name <- paste(name, className)
 
   ## Create Tag with Class ####################
+  styleattr <- list(...)
+  if ("style" %in% names(styleattr)) {
+    styleattr$style <- paste0(names(styleattr$style), ":",
+                              styleattr$style, collapse = ";")
+  }
   iconTag <- tags$i(class = name)
+  iconTag$attribs <- c(iconTag$attribs, styleattr)
 
   ## Add Deps ####################
-  styles <- c("css/weather-icons.min.css")
-  if (wind) styles <- c(styles, "css/weather-icons-wind.min.css")
-  htmlDependencies(iconTag) <- htmlDependency(name = "weathericons",
-                                              version = "1.0.0",
-                                              src = system.file("www/styles", package = "weathericons"),
-                                              stylesheet = styles)
+  htmlDependencies(iconTag) <- useWeatherIcons(wind)
 
   ## Output browsable icon ####################
   htmltools::browsable(iconTag)
+}
+
+#' useWeatherIcons
+#' @description Import the CSS files, if you're not using \code{\link{weathericon}}
+#'   anywhere else in the UI.
+#' @param wind Should the Wind-Stylesheet be included as dependency.
+#'   The default is \code{TRUE}
+#' @export
+useWeatherIcons <- function(wind = TRUE) {
+  styles <- c("css/weather-icons.min.css")
+  if (wind) styles <- c(styles, "css/weather-icons-wind.min.css")
+  htmlDependency(name = "weathericons",
+                 version = "1.0.0",
+                 src = system.file("www/styles", package = "weathericons"),
+                 stylesheet = styles)
 }
 
 utils::globalVariables(c("quadrants"))

@@ -11,7 +11,8 @@ weathericon(
   rotate = NULL,
   towards = NULL,
   from = NULL,
-  className = NULL
+  className = NULL,
+  ...
 )
 }
 \arguments{
@@ -31,9 +32,16 @@ degrees or by an orientation. See the details.}
 degrees or by an orientation. See the details.}
 
 \item{className}{Define an additional classname for the icon tag.}
+
+\item{...}{Additional arguments that are passed to the attributes
+of the i-tag. Style arguments must be passed as a named list.}
+}
+\value{
+A weather-icon element
 }
 \description{
-weathericon
+Create a weathericon for use within a page. Icons can appear on
+their own, inside of a button, or as an icon for a tabPanel() within a navbarPage().
 }
 \details{
 The arguments \code{towards} and \code{from} can either be an integer value
@@ -44,12 +52,22 @@ stored in the dataset \code{quadrants}.
 \dontrun{
 
 ## To see a full List of icons please run this shiny-app
-shiny::runApp(system.file("examples/app.R", package = "weathericons"))
+shiny::runApp(system.file("examples/app.R", package = "weathericons"),
+             display.mode="showcase")
 
 ## To see how to use classes with icons see the following shiny-app
-shiny::runApp(system.file("examples/app_classes.R", package = "weathericons"))
+shiny::runApp(system.file("examples/app_classes.R", package = "weathericons"),
+              display.mode="showcase")
 
-weathericon("wi wi-forecast-io-fog")
+## To see how to use JS functions and inline styling, please run this shiny-app
+shiny::runApp(system.file("examples/js_functions.R", package = "weathericons"),
+              display.mode="showcase")
+
+## To see how to use weathericons for leaflet popups and labels, see
+shiny::runApp(system.file("examples/leaflet_popup.R", package = "weathericons"),
+              display.mode="showcase")
+
+
 weathericon("wi-forecast-io-fog")
 weathericon("wi-wu-chanceflurries")
 weathericon("wi-moon-waxing-crescent-3")
@@ -68,7 +86,6 @@ weathericon("wi wi-wind", towards = "sse")
 weathericon("wi-wind", from = "sw")
 weathericon("wi wi-wind", towards = 40)
 weathericon("wi wi-wind", from = 40)
-
 }
 }
 \seealso{
