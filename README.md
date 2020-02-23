@@ -52,17 +52,28 @@ weathericon("wi wi-wind", from = 40)
 List all icons:
 
 ``` r
-shiny::runApp(system.file("examples/app.R", package = "weathericons"), display.mode = "showcase")
+shiny::runApp(system.file("examples/app.R", package = "weathericons"), 
+              display.mode = "showcase")
 ```
 
 Customize icons example with CSS:
 
 ``` r
-shiny::runApp(system.file("examples/app_classes.R", package = "weathericons"), display.mode = "showcase")
+shiny::runApp(system.file("examples/app_classes.R", package = "weathericons"), 
+              display.mode = "showcase")
+```
+
+Use JS functions and inline styling, please run this shiny-app
+``` r
+shiny::runApp(system.file("examples/js_functions.R", package = "weathericons"),
+              display.mode="showcase")
 ```
 
 Leaflet popups and labels with weathericons:
 
 ``` r
-shiny::runApp(system.file("examples/leaflet_popup.R", package = "weathericons"), display.mode = "showcase")
+shiny::runApp(system.file("examples/leaflet_popup.R", package = "weathericons"), 
+              display.mode = "showcase")
 ```
+
+

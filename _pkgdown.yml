@@ -1,0 +1,13 @@
+destination: docs
+title: weathericons
+url: https://trafficonese.github.io/weathericons
+template:
+  params:
+    bootswatch: cosmo
+
+navbar:
+  title: "weathericons"
+
+authors:
+  Sebastian Gatscha:
+  href: https://github.com/trafficonese
