@@ -3,7 +3,7 @@
 #' their own, inside of a button, or as an icon for a tabPanel() within a navbarPage().
 #' @importFrom htmltools HTML tags singleton htmlDependencies htmlDependency
 #'   browsable htmlDependencies<-
-#' @importFrom utils globalVariables
+#' @importFrom utils globalVariables adist
 #' @param name Name of the icon
 #' @param wind Should the Wind-Stylesheet be included as dependency.
 #'   The default is \code{TRUE}
@@ -126,6 +126,54 @@ weathericon <- function(name = NULL, wind = TRUE,
   htmltools::browsable(iconTag)
 }
 
+#' weathersvg
+#' @description Create a weathersvg
+#' @param name Name of the SVG
+#' @param style A named list to style the SVG. See the examples
+#' @param className Define a classname for the SVG
+#' @return A weather-svg element
+#' @export
+#' @seealso \href{https://erikflowers.github.io/weather-icons/}{Weather Icons}
+#' @examples \dontrun{
+#' weathersvg("wi-cloudy", style = list(fill = "red",
+#'                                      width = "10%"))
+#'
+#' weathersvg("wi-wind-deg.svg", style = list(fill = "blue",
+#'                                            rotate = "45deg",
+#'                                            width = "10%"))
+#'
+#' weathersvg("wi-train.svg", style = list(fill = "yellow",
+#'                                         width = "10%"))
+#' }
+weathersvg <- function(name, style = NULL, className = NULL) {
+  ## Check Name ##################
+  fileext <- gsub(".*\\.", "", name)
+  if (fileext != "svg") name <- paste0(name, ".svg")
+  if (!name %in% svglist) {
+    stop("This svg does not exist. Did you maybe mean `",
+         svglist[which.min(adist(name, svglist))], "`")
+  }
+  src <- system.file("www/styles/svg", package = "weathericons")
+  svgoutput <- readLines(paste0(src, "/", name))
+  ## Remove SVG ID / Add Name ###############
+  svgoutput[3] <- gsub('id=\"Layer_1\" ', paste0("name='",name,"' "),
+                       fixed = TRUE, svgoutput[3])
+  ## Change SVG style #################
+  if (!is.null(style)) {
+    style <- paste(paste0(names(style), ":", style), collapse = ";")
+    svgoutput[4] <- gsub('style=\"enable-background:new 0 0 30 30;\" ',
+                         paste0("style =\"" ,style, "\""),
+                         fixed = TRUE, svgoutput[4])
+  }
+  ## Add className if given ################
+  if (!is.null(className)) {
+    svgoutput[3] <- gsub('version=\"1.1\" ', paste0("version=\"1.1\" class='", className, "' "),
+                         fixed = TRUE, svgoutput[3])
+  }
+  ## Output as SVG ###################
+  browsable(HTML(paste(svgoutput, collapse = "")))
+}
+
 #' useWeatherIcons
 #' @description Import the CSS files, if you're not using \code{\link{weathericon}}
 #'   anywhere else in the UI.
@@ -141,4 +189,4 @@ useWeatherIcons <- function(wind = TRUE) {
                  stylesheet = styles)
 }
 
-utils::globalVariables(c("quadrants"))
+utils::globalVariables(c("quadrants", "svglist"))

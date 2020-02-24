@@ -1,4 +1,4 @@
-test_that("multiplication works", {
+test_that("Test Icons", {
 
   x <- weathericon()
   expect_true(x$name == "i")

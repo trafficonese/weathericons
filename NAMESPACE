@@ -2,6 +2,7 @@
 
 export(useWeatherIcons)
 export(weathericon)
+export(weathersvg)
 importFrom(htmltools,"htmlDependencies<-")
 importFrom(htmltools,HTML)
 importFrom(htmltools,browsable)
@@ -9,4 +10,5 @@ importFrom(htmltools,htmlDependencies)
 importFrom(htmltools,htmlDependency)
 importFrom(htmltools,singleton)
 importFrom(htmltools,tags)
+importFrom(utils,adist)
 importFrom(utils,globalVariables)

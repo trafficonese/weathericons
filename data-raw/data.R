@@ -10,9 +10,13 @@ unlink("iconlist.xml")
 iconlist <- gsub("_", "-", iconlist, fixed = TRUE)
 usethis::use_data(iconlist, overwrite = TRUE)
 
+svglist <- system.file("www/styles/svg", package = "weathericons")
+svglist <- list.files(svglist)
+usethis::use_data(svglist, overwrite = TRUE)
 
 quadrants <- c("n","nne","ne","ene",
                "e","ese","se", "sse",
                "s","ssw","sw","wsw",
                "w","wnw","nw","nnw")
 usethis::use_data(quadrants, overwrite = TRUE)
+

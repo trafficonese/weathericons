@@ -14,7 +14,7 @@ Depends: R (>= 3.1.0)
 Imports: 
   utils,
   htmltools
-URL: https://erikflowers.github.io/weather-icons/
+URL: https://trafficonese.github.io/weathericons/
 BugReports: https://github.com/trafficonese/weathericons/issues
 Encoding: UTF-8
 LazyData: true

@@ -63,7 +63,7 @@ shiny::runApp(system.file("examples/app_classes.R", package = "weathericons"),
               display.mode = "showcase")
 ```
 
-Use JS functions and inline styling, please run this shiny-app
+Using JS functions and inline styling:
 ``` r
 shiny::runApp(system.file("examples/js_functions.R", package = "weathericons"),
               display.mode="showcase")
@@ -76,4 +76,9 @@ shiny::runApp(system.file("examples/leaflet_popup.R", package = "weathericons"),
               display.mode = "showcase")
 ```
 
+Weathericons as SVG:
 
+``` r
+shiny::runApp(system.file("examples/svgs_app.R", package = "weathericons"), 
+              display.mode = "showcase")
+```
