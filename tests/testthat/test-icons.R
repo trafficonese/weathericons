@@ -9,6 +9,17 @@ test_that("Test Icons", {
   expect_true(x$name == "i")
   expect_true(x$attribs$class == "wi wi-wu-chanceflurries")
 
+  x1 <- weathericon("wu-chanceflurries")
+  expect_true(x1$name == "i")
+  expect_true(x1$attribs$class == "wi wi-wu-chanceflurries")
+
+  x2 <- weathericon("wi wi-wu-chanceflurries")
+  expect_true(x2$name == "i")
+  expect_true(x2$attribs$class == "wi wi-wu-chanceflurries")
+
+  expect_identical(x,x1)
+  expect_identical(x,x2)
+
   x <- weathericon("wi-moon-waxing-crescent-3")
   expect_true(x$name == "i")
   expect_true(x$attribs$class == "wi wi-moon-waxing-crescent-3")

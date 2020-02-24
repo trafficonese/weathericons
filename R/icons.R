@@ -46,6 +46,8 @@
 #' weathericon("wi-wu-chanceflurries")
 #' weathericon("wi-moon-waxing-crescent-3")
 #' weathericon("wi-forecast-io-rain")
+#' weathericon("storm-warning")
+#' weathericon("day-fog")
 #'
 #' ## Rotating Icons
 #' weathericon("wi wi-yahoo-7", rotate = "90")
@@ -63,8 +65,7 @@
 #' }
 weathericon <- function(name = NULL, wind = TRUE,
                         flip = NULL, rotate = NULL,
-                        towards = NULL,
-                        from = NULL,
+                        towards = NULL, from = NULL,
                         className = NULL,
                         ...) {
 
@@ -72,6 +73,7 @@ weathericon <- function(name = NULL, wind = TRUE,
   if (is.null(name)) name = "wi wi-day-sunny"
 
   ## Add "wi " class if not there ###############
+  if (!grepl("wi-",name, fixed = TRUE)) name <- paste0("wi-", name)
   if (substr(name, 1, 3) != "wi ") name <- paste0("wi ", name)
 
   ## Icon Flipping #################
@@ -135,6 +137,11 @@ weathericon <- function(name = NULL, wind = TRUE,
 #' @export
 #' @seealso \href{https://erikflowers.github.io/weather-icons/}{Weather Icons}
 #' @examples \dontrun{
+#'
+#' ## To see all SVGs, run this shiny-app
+#' shiny::runApp(system.file("examples/svgs_app.R", package = "weathericons"),
+#'               display.mode = "showcase")
+#'
 #' weathersvg("wi-cloudy", style = list(fill = "red",
 #'                                      width = "10%"))
 #'

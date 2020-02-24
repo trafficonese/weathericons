@@ -72,6 +72,8 @@ weathericon("wi-forecast-io-fog")
 weathericon("wi-wu-chanceflurries")
 weathericon("wi-moon-waxing-crescent-3")
 weathericon("wi-forecast-io-rain")
+weathericon("storm-warning")
+weathericon("day-fog")
 
 ## Rotating Icons
 weathericon("wi wi-yahoo-7", rotate = "90")
