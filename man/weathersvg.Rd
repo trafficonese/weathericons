@@ -21,6 +21,11 @@ Create a weathersvg
 }
 \examples{
 \dontrun{
+
+## To see all SVGs, run this shiny-app
+shiny::runApp(system.file("examples/svgs_app.R", package = "weathericons"),
+              display.mode = "showcase")
+
 weathersvg("wi-cloudy", style = list(fill = "red",
                                      width = "10\%"))
 
