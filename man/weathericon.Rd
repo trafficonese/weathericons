@@ -49,24 +49,7 @@ between 0-360 or a character giving the direction. The possible items are
 stored in the dataset \code{quadrants}.
 }
 \examples{
-\dontrun{
-
-## To see a full List of icons please run this shiny-app
-shiny::runApp(system.file("examples/app.R", package = "weathericons"),
-             display.mode="showcase")
-
-## To see how to use classes with icons see the following shiny-app
-shiny::runApp(system.file("examples/app_classes.R", package = "weathericons"),
-              display.mode="showcase")
-
-## To see how to use JS functions and inline styling, please run this shiny-app
-shiny::runApp(system.file("examples/js_functions.R", package = "weathericons"),
-              display.mode="showcase")
-
-## To see how to use weathericons for leaflet popups and labels, see
-shiny::runApp(system.file("examples/leaflet_popup.R", package = "weathericons"),
-              display.mode="showcase")
-
+if (interactive()) {
 
 weathericon("wi-forecast-io-fog")
 weathericon("wi-wu-chanceflurries")
@@ -88,6 +71,7 @@ weathericon("wi wi-wind", towards = "sse")
 weathericon("wi-wind", from = "sw")
 weathericon("wi wi-wind", towards = 40)
 weathericon("wi wi-wind", from = 40)
+
 }
 }
 \seealso{

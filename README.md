@@ -3,7 +3,6 @@
 
 <!-- badges: start -->
 [![](https://www.r-pkg.org/badges/version/weathericons)](https://www.r-pkg.org/pkg/weathericons)
-[![cran checks](https://cranchecks.info/badges/worst/weathericons)](https://cran.r-project.org/web/checks/check_results_weathericons.html)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/weathericons?color=brightgreen)](https://www.r-pkg.org/pkg/weathericons)
 [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/weathericons)](https://www.rpackages.io/package/weathericons)
 [![Build Status](https://travis-ci.org/trafficonese/weathericons.svg?branch=master)](https://travis-ci.org/trafficonese/weathericons)

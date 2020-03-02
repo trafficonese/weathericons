@@ -23,24 +23,8 @@
 #' @return A weather-icon element
 #' @export
 #' @seealso \href{https://erikflowers.github.io/weather-icons/}{Weather Icons}
-#' @examples \dontrun{
-#'
-#' ## To see a full List of icons please run this shiny-app
-#' shiny::runApp(system.file("examples/app.R", package = "weathericons"),
-#'              display.mode="showcase")
-#'
-#' ## To see how to use classes with icons see the following shiny-app
-#' shiny::runApp(system.file("examples/app_classes.R", package = "weathericons"),
-#'               display.mode="showcase")
-#'
-#' ## To see how to use JS functions and inline styling, please run this shiny-app
-#' shiny::runApp(system.file("examples/js_functions.R", package = "weathericons"),
-#'               display.mode="showcase")
-#'
-#' ## To see how to use weathericons for leaflet popups and labels, see
-#' shiny::runApp(system.file("examples/leaflet_popup.R", package = "weathericons"),
-#'               display.mode="showcase")
-#'
+#' @examples
+#' if (interactive()) {
 #'
 #' weathericon("wi-forecast-io-fog")
 #' weathericon("wi-wu-chanceflurries")
@@ -62,6 +46,7 @@
 #' weathericon("wi-wind", from = "sw")
 #' weathericon("wi wi-wind", towards = 40)
 #' weathericon("wi wi-wind", from = 40)
+#'
 #' }
 weathericon <- function(name = NULL, wind = TRUE,
                         flip = NULL, rotate = NULL,
