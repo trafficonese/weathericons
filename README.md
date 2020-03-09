@@ -2,7 +2,6 @@
 
 
 <!-- badges: start -->
-[![](https://www.r-pkg.org/badges/version/weathericons)](https://www.r-pkg.org/pkg/weathericons)
 [![Build Status](https://travis-ci.org/trafficonese/weathericons.svg?branch=master)](https://travis-ci.org/trafficonese/weathericons)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![codecov](https://codecov.io/gh/trafficonese/weathericons/branch/master/graph/badge.svg)](https://codecov.io/gh/trafficonese/weathericons)
