@@ -3,8 +3,6 @@
 
 <!-- badges: start -->
 [![](https://www.r-pkg.org/badges/version/weathericons)](https://www.r-pkg.org/pkg/weathericons)
-[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/weathericons?color=brightgreen)](https://www.r-pkg.org/pkg/weathericons)
-[![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/weathericons)](https://www.rpackages.io/package/weathericons)
 [![Build Status](https://travis-ci.org/trafficonese/weathericons.svg?branch=master)](https://travis-ci.org/trafficonese/weathericons)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![codecov](https://codecov.io/gh/trafficonese/weathericons/branch/master/graph/badge.svg)](https://codecov.io/gh/trafficonese/weathericons)
@@ -17,15 +15,6 @@ The package adds support for the [weather-icons](https://erikflowers.github.io/w
 </p>
 
 ## Installation
-
-#### NOT YET!!
-~~You can install the released version of weathericons from [CRAN](https://CRAN.R-project.org) with:~~
-
-``` r
-install.packages("weathericons")
-```
-
-or the development version with:
 
 ``` r
 remotes::install_github("trafficonese/weathericons")
